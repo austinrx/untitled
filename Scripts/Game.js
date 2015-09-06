@@ -11,3 +11,17 @@ $('#gameCanvas').attr('height',canvasHeight);
 var canvas = $('#gameCanvas')[0].getContext('2d');
 
 canvas.strokeRect(0,0 , canvasWidth , canvasHeight);
+
+
+var image  = new Image();
+image.src = "player.png";
+
+
+$(image).load(function() {
+
+
+    canvas.drawImage(image,  canvasWidth / 2, canvasHeight /2 );
+
+});
+
+
