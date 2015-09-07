@@ -20,7 +20,7 @@ image.src = "player.png";
 $(image).load(function() {
 
 
-    canvas.drawImage(image,  canvasWidth / 2, canvasHeight /2 );
+    canvas.drawImage(image,  (canvasWidth / 2) - (image.width /2), (canvasHeight /2 ) - (image.height /2));
 
 });
 
