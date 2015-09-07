@@ -10,8 +10,15 @@ $('#gameCanvas').attr('height',canvasHeight);
 
 var canvas = $('#gameCanvas')[0].getContext('2d');
 
+var keysDown = {};
 
+$('body').bind('keydown', function(e){
+    keysDown[e.which] = true
+})
 
+$('body').bind('keyup',function(e) {
+   keysDown[e.which] = false;
+}
 
 var image  = new Image();
 image.src = "player.png";
@@ -36,7 +43,18 @@ update();
 
 function update() {
 console.log('update');
-    playerX++;
+   if(keysDown[37]) {
+       playerX -= 10;
+   }
+    if(keysDown[38]) {
+        playerY -= 10;
+    }
+    if(keysDown[39]) {
+        playerX -= 10;
+        if(keysDown[40]) {
+            playerY -= 10;
+        }
+    }
 }
 function draw() {
     console.log('draw');
