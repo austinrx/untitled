@@ -31,21 +31,31 @@ $(image).load(function() {
 
 });
 
+
+}
+function draw() {
+    console.log('draw');
+    canvas.clearRect(0,0 , canvasWidth,canvasHeight);
+    canvas.strokeRect(0,0 , canvasWidth , canvasHeight);
+
+    canvas.drawImage(image,  playerX,playerY);
+}
+
 var playerX = (canvasWidth / 2) - (image.width /2);
 var playerY =  (canvasHeight /2 ) - (image.height /2);
 
 var FPS = 30;
 
 setInterval(function() {
-update();
+    update();
     draw();
 }, 1000/ FPS)
 
 function update() {
-console.log('update');
-   if(keysDown[37]) {
-       playerX -= 10;
-   }
+    console.log('update');
+    if(keysDown[37]) {
+        playerX -= 10;
+    }
     if(keysDown[38]) {
         playerY -= 10;
     }
@@ -55,11 +65,3 @@ console.log('update');
             playerY -= 10;
         }
     }
-}
-function draw() {
-    console.log('draw');
-    canvas.clearRect(0,0 , canvasWidth,canvasHeight);
-    canvas.strokeRect(0,0 , canvasWidth , canvasHeight);
-
-    canvas.drawImage(image,  playerX,playerY);
-}
