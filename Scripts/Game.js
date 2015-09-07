@@ -25,7 +25,7 @@ $(image).load(function() {
 });
 
 var playerX = (canvasWidth / 2) - (image.width /2);
-
+var playerY =  (canvasHeight /2 ) - (image.height /2);
 
 var FPS = 30;
 
@@ -36,10 +36,12 @@ update();
 
 function update() {
 console.log('update');
+    playerX++;
 }
 function draw() {
     console.log('draw');
+    canvas.clearRect(0,0 , canvasWidth,canvasHeight);
     canvas.strokeRect(0,0 , canvasWidth , canvasHeight);
 
-    canvas.drawImage(image,  playerX, (canvasHeight /2 ) - (image.height /2));
+    canvas.drawImage(image,  playerX,playerY);
 }
