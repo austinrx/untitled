@@ -10,7 +10,7 @@ $('#gameCanvas').attr('height',canvasHeight);
 
 var canvas = $('#gameCanvas')[0].getContext('2d');
 
-canvas.strokeRect(0,0 , canvasWidth , canvasHeight);
+
 
 
 var image  = new Image();
@@ -24,4 +24,22 @@ $(image).load(function() {
 
 });
 
+var playerX = (canvasWidth / 2) - (image.width /2);
 
+
+var FPS = 30;
+
+setInterval(function() {
+update();
+    draw();
+}, 1000/ FPS)
+
+function update() {
+console.log('update');
+}
+function draw() {
+    console.log('draw');
+    canvas.strokeRect(0,0 , canvasWidth , canvasHeight);
+
+    canvas.drawImage(image,  playerX, (canvasHeight /2 ) - (image.height /2));
+}
